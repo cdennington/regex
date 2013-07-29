@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Regex Tutorial</title>
+
+    <link rel="stylesheet/less" type="text/css" href="media/css/styles.less" />
+    <link rel="stylesheet/less" type="text/css" href="media/css/bootstrap/bootstrap.less" />
+
+    <script type="text/javascript" src="media/js/plugins/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="media/js/plugins/less-1.3.3.min.js"></script>
+    <script type="text/javascript" src="media/js/scripts/script.js" ></script>
+
+ </head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Project name</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="tutorial.html">Tutorial</a></li>
+                        <li><a href="examples.html">Examples</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form class="regex_form">
+            <fieldset>
+                <label>Choose some regex:</label>
+                <select class="regex_dropdown" name="regex">
+                    <option>A string that starts with</option>
+                    <option>A string that ends with</option>
+                    <option>A string that starts and ends with</option>
+                    <option>A string that has the text</option>
+                </select>
+                <label>Add word here:</label>
+                <input type="text" class="search_key" placeholder="Type something…">
+                <button type="submit" class="btn">Submit</button>
+            </fieldset>
+        </form>
+
+        <div class="row">
+            <div class="well answer"></div>
+        </div>
+    </div>
+</body>
+</html>

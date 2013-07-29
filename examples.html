@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Regex Tutorial</title>
+
+    <link rel="stylesheet/less" type="text/css" href="media/css/styles.less" />
+    <link rel="stylesheet/less" type="text/css" href="media/css/bootstrap/bootstrap.less" />
+
+    <script type="text/javascript" src="media/js/plugins/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="media/js/plugins/less-1.3.3.min.js"></script>
+    <script type="text/javascript" src="media/js/scripts/script.js" ></script>
+
+ </head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Project name</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tutorial.html">Tutorial</a></li>
+                        <li class="active"><a href="#">Examples</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="well">
+                [ ] Match anything inside the square brackets for ONE character position once and only once, for example, [12] means match the target to 1 and if that does not match then match the target to 2 while [0123456789] means match to any character in the range 0 to 9.
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                - The - (dash) inside square brackets is the 'range separator' and allows us to define a range, in our example above of [0123456789] we could rewrite it as [0-9]. You can define more than one range inside a list, for example, [0-9A-C] means check for 0 to 9 and A to C (but not a to c). NOTE: To test for - inside brackets (as a literal) it must come first or last, that is, [-0-9] will test for - and 0 to 9.
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                ^ The ^ (circumflex or caret) inside square brackets negates the expression (we will see an alternate use for the circumflex/caret outside square brackets later), for example, [^Ff] means anything except upper or lower case F
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                ^ The ^ (circumflex or caret) outside square brackets means look only at the beginning of the target string, for example, ^Win will not find Windows in STRING1 but ^Moz will find Mozilla.
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                $ The $ (dollar) means look only at the end of the target string, for example, fox$ will find a match in 'silver fox' since it appears at the end of the string but not in 'the fox jumped over the moon'.
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                . The . (period) means any character(s) in this position, for example, ton. will find tons, tone and tonneau but not wanton because it has no following character.
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                ? The ? (question mark) matches when the preceding character occurs 0 or 1 times only, for example, colou?r will find both color (u is found 0 times) and colour (u is found 1 time).
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                * The * (asterisk or star) matches when the preceding character occurs 0 or more times, for example, tre* will find tree (e is found 2 times) and tread (e is found 1 time) and trough (e is found 0 times).
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                + The + (plus) matches when the preceding character occurs 1 or more times, for example, tre+ will find tree (e is found 2 times) and tread (e is found 1 time) but NOT trough (0 times).
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                {n} Matches when the preceding character, or character range, occurs n times exactly, for example, to find a local phone number we could use [0-9]{3}-[0-9]{4} which would find any number of the form 123-4567.
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                {n,m}   Matches when the preceding character occurs at least n times but not more than m times, for example, 'ba{2,3}b' will find 'baab' and 'baaab' but NOT 'bab' or 'baaaab'. Values are enclosed in braces (curly brackets).
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                {n,} Matches when the preceding character occurs at least n times, for example, 'ba{2,}b' will find 'baab', 'baaab' or 'baaaab' but NOT 'bab'. Values are enclosed in braces (curly brackets).
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                () The ( (open parenthesis) and ) (close parenthesis) may be used to group (or bind) parts of our search expression together. Officially this is called a subexpression (a.k.a. a submatch or group) and subexpressions may be nested to any depth. Parentheses (subexpresions) also capture the matched element into a variable that may be used as a backreference.
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                | The | (vertical bar or pipe) is called alternation in techspeak and means find the left hand OR right values, for example, gr(a|e)y will find 'gray' or 'grey' and has the sense that - having found the literal characters 'gr' - if the first test is not valid (a) the second will be tried (e), if the first is valid the second will not be tried. Alternation can be nested within each expression, thus gr((a|e)|i)y will find 'gray', 'grey' and 'griy'.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
