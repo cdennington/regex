@@ -5,23 +5,26 @@ $(document).ready(function() {
         var regex_function_name = regex.replace(/ /g,"_");
         var search_key = $('.search_key').val();
         var fn = regex_function_name + "('" + search_key + "');";
+        $('.answer').append('<h3>'+ regex + ' ' + search_key +'</h3>');
         eval(fn);
         return false;
     });
 
     function A_string_that_starts_with(search_key) {
-    	$('.answer').append('To get any sentence which begins with ' + search_key + ' Just add a ^ to the beginning of the word, so the regex will look like "^' + search_key + '"');
+    	$('.answer').append('Add a ^ to the beginning of the string, so the regex will look like "^' + search_key + '"');
     	$('.answer').fadeIn();
-    	//return false;
     }
     function A_string_that_ends_with(search_key) {
-    	console.log(search_key);
+    	$('.answer').append('Add a $ to the end of the string, so the regex will look like "' + search_key + '$"');
+    	$('.answer').fadeIn();
     }
     function A_string_that_starts_and_ends_with(search_key) {
-    	console.log(search_key);
+    	$('.answer').append('Add a ^ to the beginning of the string and $ to the end, so the regex will look like "^' + search_key + '"$');
+    	$('.answer').fadeIn();
     }
     function A_string_that_has_the_text(search_key) {
-    	console.log(search_key);
+    	$('.answer').append('Just put the string in quotes, so the regex will look like "' + search_key + '"');
+    	$('.answer').fadeIn();
     }
 
 });
