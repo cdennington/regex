@@ -30,15 +30,17 @@
     <div class="container">
         <form class="regex_form">
             <fieldset>
-                <label>Choose some regex:</label>
-                <select class="regex_dropdown" name="regex">
-                    <option>A string that starts with</option>
-                    <option>A string that ends with</option>
-                    <option>A string that starts and ends with</option>
-                    <option>A string that has the text</option>
-                </select>
-                <label>Add word here:</label>
+                <label>Find:</label>
                 <input type="text" class="search_key" placeholder="Type something…">
+                <label></label>
+                <select class="regex_dropdown" name="regex">
+                    <option>At the beginning of</option>
+                    <option>At the end of</option>
+                    <option>At the begining and end of</option>
+                    <option>Anywhere</option>
+                </select>
+                <label>In:</label>
+                <textarea class="form-control search_sentence"></textarea>
                 <button type="submit" class="btn">Submit</button>
             </fieldset>
         </form>
