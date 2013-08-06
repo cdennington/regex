@@ -63,6 +63,15 @@ $(document).ready(function() {
         answer_regex(check_regex);
     }
 
+    function Remove_all_white_space(search_key, search_sentence) {
+        var check_regex = search_key.replace(/ /g,"");
+        $('.answer').append('<p>Use the following code: text.replace(/ /g,"")</p>');
+        $('.answer').append('<p>The g means it searches the whole document, instead of just replacing the first one it comes accross</p>');
+        $('.answer').append('<p>To replace the spaces with anything, add that thing into the "", so to make the spaces and underscore usse the following code: text.replace(/ /g,"_")</p>');
+        $('.answer').append('<p>' + check_regex + '</p>');
+        $('.answer').fadeIn();
+    }
+
     // Tell user the answer to regex
     function answer_regex(answer) {
         if (answer == null) {
@@ -77,7 +86,7 @@ $(document).ready(function() {
     $(".regex_dropdown").change(function() {
        var dropdown_item = $(this).val();
        console.log(dropdown_item);
-       if (dropdown_item == "Match file extension" || dropdown_item == "Check for external link" || dropdown_item == "Check http or https") {
+       if (dropdown_item == "Match file extension" || dropdown_item == "Check for external link" || dropdown_item == "Check http or https" || dropdown_item == "Remove all white space") {
             disable_element();
        }else{
             $('.search_sentence').removeClass('disabled');
