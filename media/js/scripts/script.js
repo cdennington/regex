@@ -67,6 +67,24 @@ $(document).ready(function() {
         $('.answer').fadeIn();
     }
 
+    // On dropdown change
+    $(".regex_dropdown").change(function() {
+       var dropdown_item = $(this).val();
+       console.log(dropdown_item);
+       if (dropdown_item == "Match file extension" || dropdown_item == "Check for external link") {
+            disable_element();
+       }else{
+            $('.search_sentence').removeClass('disabled');
+            $('.add_textarea').css('display','block');
+       }
+    });
+
+    // Disable element
+    function disable_element() {
+        $('.search_sentence').addClass('disabled');
+        $('.add_textarea').css('display','none');
+    }
+
     // Add extra textareas
     $(".add_textarea").click(function() {
         var count_textareas = $('.search_sentence').length;
