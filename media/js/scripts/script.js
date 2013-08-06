@@ -57,6 +57,12 @@ $(document).ready(function() {
         $('.answer').fadeIn();
     }
 
+    function Check_http_or_https(search_key, search_sentence) {
+        var check_regex = search_key.match("^(http|https)://");
+        $('.answer').append('Add a ^ to the beginning of the string and ? before the colon and forward slashes, E.g. "^https?://"');
+        answer_regex(check_regex);
+    }
+
     // Tell user the answer to regex
     function answer_regex(answer) {
         if (answer == null) {
@@ -71,7 +77,7 @@ $(document).ready(function() {
     $(".regex_dropdown").change(function() {
        var dropdown_item = $(this).val();
        console.log(dropdown_item);
-       if (dropdown_item == "Match file extension" || dropdown_item == "Check for external link") {
+       if (dropdown_item == "Match file extension" || dropdown_item == "Check for external link" || dropdown_item == "Check http or https") {
             disable_element();
        }else{
             $('.search_sentence').removeClass('disabled');
