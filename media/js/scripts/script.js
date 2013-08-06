@@ -6,7 +6,7 @@ $(document).ready(function() {
         var regex_function_name = regex.replace(/ /g,"_");
         var search_key = $('.search_key').val();
         var search_sentence = $('.search_sentence').val();
-        console.log(search_sentence);
+        //console.log(search_sentence);
         var fn = regex_function_name + "('" + search_key + "', '" + search_sentence +"');";
         $('.answer').append('<h3>'+ regex + '</h3>');
         eval(fn);
@@ -31,6 +31,15 @@ $(document).ready(function() {
     }
     function Anywhere(search_key, search_sentence) {
         var check_regex = search_sentence.match(search_key);
+        $('.answer').append('Just put the string in quotes, E.g. "' + search_key + '"');
+        answer_regex(check_regex);
+    }
+    function Match_file_extension_of_URL(search_key, search_sentence) {
+        var myRegexp = /[^\\]*\.(\w+)$/;
+        var check_regex = search_key.match(myRegexp);
+        var filename = check_regex[0];
+        var extension = check_regex[1];
+        console.log(extension);
         $('.answer').append('Just put the string in quotes, E.g. "' + search_key + '"');
         answer_regex(check_regex);
     }
