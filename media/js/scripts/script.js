@@ -34,14 +34,27 @@ $(document).ready(function() {
         $('.answer').append('Just put the string in quotes, E.g. "' + search_key + '"');
         answer_regex(check_regex);
     }
-    function Match_file_extension_of_URL(search_key, search_sentence) {
+    function Match_file_extension(search_key, search_sentence) {
         var myRegexp = /[^\\]*\.(\w+)$/;
         var check_regex = search_key.match(myRegexp);
-        var filename = check_regex[0];
         var extension = check_regex[1];
-        console.log(extension);
-        $('.answer').append('Just put the string in quotes, E.g. "' + search_key + '"');
-        answer_regex(check_regex);
+        $('.answer').append('Match your URL to the following regex ' + myRegexp + '');
+        $('.answer').append('<p>Your file extension is: ' + extension + '</p>');
+        $('.answer').fadeIn();
+    }
+
+    function Check_for_external_link(search_key, search_sentence) {
+        var theDomain = window.location.hostname;
+        var myRegexp = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
+        var check_regex = myRegexp.test(search_key);
+        if (check_regex == true) {
+            $('.answer').append('<p>This URL does not match ours: ' + theDomain + '</p>');
+        }else{
+            $('.answer').append('<p>This URL does match ours: ' + theDomain + '</p>');
+        }
+        $('.answer').append('Test your URLs against this piece of regex ^((f|ht)tps?:)?//(?!' + location.host + ')');
+        $('.answer').append('<p>Where ' + location.host + ' equals your domain</p>');
+        $('.answer').fadeIn();
     }
 
     // Tell user the answer to regex
